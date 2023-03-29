@@ -1,17 +1,15 @@
-from django import forms
 from django.contrib import admin
-from ckeditor.widgets import CKEditorWidget
-from .models import Post
 
-
-class PostAdminForm(forms.ModelForm):
-    class Meta:
-        model = Post
-        fields = '__all__'
+from .models import Post, PostImage
 
 
 class PostAdmin(admin.ModelAdmin):
-    form = PostAdminForm
+    pass
+
+
+class PostImageAdmin(admin.ModelAdmin):
+    pass
 
 
 admin.site.register(Post, PostAdmin)
+admin.site.register(PostImage, PostImageAdmin)

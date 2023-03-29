@@ -18,6 +18,8 @@ from django.urls import path, include
 from rest_framework_swagger.views import get_swagger_view
 from rest_framework.routers import DefaultRouter
 from apps.posts.views import PostViewSet
+from apps.videos.views import VideoViewSet
+from apps.files.views import FileViewSet
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -25,12 +27,13 @@ from django.conf.urls.static import static
 schema_view = get_swagger_view(title="500th API")
 router = DefaultRouter()
 router.register(r"posts", PostViewSet, basename="posts")
+router.register(r"videos", VideoViewSet, basename="videos")
+router.register(r"files", FileViewSet, basename="files")
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("swagger/", schema_view),
-    path('__debug__/', include('debug_toolbar.urls')),
 ]
 
 urlpatterns += router.urls

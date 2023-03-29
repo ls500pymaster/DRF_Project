@@ -1,5 +1,5 @@
 from django.db import models
-from core.models import BaseModel
+from core.models import BaseModel, BaseImage
 from ckeditor.fields import RichTextField
 
 
@@ -9,3 +9,7 @@ class Post(BaseModel):
 
 	def __str__(self):
 		return self.title
+
+
+class PostImage(BaseImage):
+	post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, blank=True)
