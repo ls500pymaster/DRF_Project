@@ -34,7 +34,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'users.Client'
 
 # Application definition
 
@@ -63,6 +63,8 @@ LOCAL_APPS = [
     "posts",
     "videos",
     "files",
+    "index",
+    "cars",
 ]
 
 CONSTANCE_CONFIG = {
@@ -90,7 +92,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
