@@ -17,9 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework_swagger.views import get_swagger_view
 from rest_framework.routers import DefaultRouter
+
 from apps.posts.views import PostViewSet
 from apps.videos.views import VideoViewSet
 from apps.files.views import FileViewSet
+from apps.index.views import IndexView
+
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -32,6 +35,7 @@ router.register(r"files", FileViewSet, basename="files")
 
 
 urlpatterns = [
+    path("", IndexView.as_view(), name="index"),
     path('admin/', admin.site.urls),
     path("swagger/", schema_view),
 ]

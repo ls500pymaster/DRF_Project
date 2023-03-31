@@ -1,5 +1,9 @@
 from django.contrib import admin
 from .models import User
+from django.contrib import admin
+
+admin.site.site_header = "Lexus Dealer"
+admin.site.site_title = "Lexus Dealer Title"
 
 
 @admin.register(User)
